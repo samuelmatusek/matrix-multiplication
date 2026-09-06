@@ -3,11 +3,20 @@
 
 int vynasob_matice(int **a, int r_a, int s_a, int **b, int r_b, int s_b, int ***vysledek, int *r_vysledek, int *s_vysledek){
 
+    if (a == NULL || b == NULL || r_a == NULL || s_a == NULL || r_b == NULL || s_b == NULL || vysledek == NULL || r_vysledek == NULL || s_vysledek == NULL){
+        uvolni_matici(a, r_a);
+        uvolni_matici(b, r_b);
+        return 1;
+    }
+
+    r_vysledek = r_a;
+    s_vysledek = s_b;
 
     return 1;
 }
 
 void uvolni_matici(int **matice, int radky){
+
     for (int i = 0; i < radky; i++){
         free(matice[i]);
     }
@@ -49,7 +58,7 @@ int main(void){
     }
 
     printf("Zadej rozmery matice B (radky sloupce):\n");
-    if (scanf("%d %d", &r_b, &s_b) != 2 || r_b <= 0 || s_b <= 0 || s_a != s_b){
+    if (scanf("%d %d", &r_b, &s_b) != 2 || r_b <= 0 || s_b <= 0 || s_a != r_b){
         uvolni_matici(a, r_a);
         printf("Nespravny vstup.\n");
         return 1;
