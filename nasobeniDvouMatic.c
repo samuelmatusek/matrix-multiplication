@@ -8,7 +8,10 @@ int vynasob_matice(int **a, int r_a, int s_a, int **b, int r_b, int s_b, int ***
 }
 
 void uvolni_matici(int **matice, int radky){
-    
+    for (int i = 0; i < radky; i++){
+        free(matice[i]);
+    }
+    free(matice);
 }
 
 int main(void){
@@ -21,7 +24,19 @@ int main(void){
         return 1;
     }
 
-
+    int **a = malloc(sizeof(*a) * r_a);
+    if (a == NULL){
+        printf("Nespravny vstup.\n");
+        return 1;
+    }
+    for (int i = 0; i < r_a; i++){
+        a[i] = malloc(sizeof(*a[i]) * s_a);
+        if (a[i] == NULL){
+            uvolni_matici(a, i);
+            printf("Nespravny vstup.\n");
+            return 1;
+        }
+    }
 
 
 
