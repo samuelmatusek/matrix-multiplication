@@ -38,6 +38,13 @@ int main(void){
         }
     }
 
+    printf("Zadej rozmery matice B (radky sloupce):\n");
+    if (scanf("%d %d", &r_b, &s_b) != 2 || r_b <= 0 || s_b <= 0 || s_a != s_b){
+        uvolni_matici(a, r_a);
+        printf("Nespravny vstup.\n");
+        return 1;
+    }
+
 
 
 
