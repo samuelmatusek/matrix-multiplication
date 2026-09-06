@@ -37,6 +37,16 @@ int main(void){
             return 1;
         }
     }
+    printf("Zadejte prvky matice A:\n");
+    for (int i = 0; i < r_a; i++){
+        for (int j = 0; j < s_a; j++){
+            if (scanf("%d", &a[i][j]) != 1){
+                uvolni_matici(a, r_a);
+                printf("Nespravny vstup.\n");
+                return 1;
+            }
+        }
+    }
 
     printf("Zadej rozmery matice B (radky sloupce):\n");
     if (scanf("%d %d", &r_b, &s_b) != 2 || r_b <= 0 || s_b <= 0 || s_a != s_b){
@@ -60,7 +70,17 @@ int main(void){
             return 1;
         }
     }
-
+    printf("Zadejte prvky matice B:\n");
+    for (int i = 0; i < r_b; i++){
+        for (int j = 0; j < s_b; j++){
+            if (scanf("%d", &b[i][j]) != 1){
+                uvolni_matici(a, r_a);
+                uvolni_matici(b, r_b);
+                printf("Nespravny vstup.\n");
+                return 1;
+            }
+        }
+    }
 
 
 
