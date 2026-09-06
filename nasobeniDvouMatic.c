@@ -3,6 +3,9 @@
 
 void uvolni_matici(int **matice, int radky){
 
+    if (matice == NULL)
+        return;
+
     for (int i = 0; i < radky; i++){
         free(matice[i]);
     }
@@ -120,6 +123,9 @@ int main(void){
                     printf("%d\n", vysledek[i][j]);
             }
         }
+        uvolni_matici(a, r_a);
+        uvolni_matici(b, r_b);
+        uvolni_matici(vysledek, r_vysledek);
     }
     else {
         printf("Nespravny vstup.\n");
