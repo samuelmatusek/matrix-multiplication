@@ -45,6 +45,22 @@ int main(void){
         return 1;
     }
 
+    int **b = malloc(sizeof(*b) * r_b);
+    if (b == NULL){
+        uvolni_matici(a, r_a);
+        printf("Nespravny vstup.\n");
+        return 1;
+    }
+    for (int i = 0; i < r_b; i++){
+        b[i] = malloc(sizeof(*b[i]) * s_b);
+        if (b[i] == NULL){
+            uvolni_matici(b, i);
+            uvolni_matici(a, r_a);
+            printf("Nespravny vstup.\n");
+            return 1;
+        }
+    }
+
 
 
 
