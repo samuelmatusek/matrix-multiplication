@@ -20,6 +20,19 @@ int vynasob_matice(int **a, int r_a, int s_a, int **b, int r_b, int s_b, int ***
         }
     }
 
+    for (int i = 0; i < r_vysledek; i++){
+        for (int j = 0; j < s_vysledek; j++){
+            int temp = 0;
+            for (int k = 0; k < s_a; k++){
+                temp += a[i][k] * b[k][j];
+            }
+            (*vysledek)[i][j] = temp;
+            if (*vysledek[i][j] == NULL){
+                uvolni_matici(*vysledek, r_vysledek);
+                return 1;
+            }
+        }
+    }
 
     return 1;
 }
