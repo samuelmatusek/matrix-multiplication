@@ -13,7 +13,13 @@ void uvolni_matici(int **matice, int radky){
 
 int main(void){
 
+    int r_a, r_b, s_a, s_b;
 
+    printf("Zadej rozmery matice A (radky sloupce):\n");
+    if (scanf("%d %d", &r_a, &s_a) != 2 || r_a <= 0 || s_a <= 0){
+        printf("Nespravny vstup.\n");
+        return 1;
+    }
 
 
 
